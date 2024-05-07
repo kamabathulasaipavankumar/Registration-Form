@@ -56,22 +56,22 @@ function previewImage(event) {
   };
   
   // Function to populate the states/provinces dropdown based on the selected country
-  function populateStates() {
-    var countrySelect = document.getElementById("country");
-    var stateSelect = document.getElementById("state");
-    var country = countrySelect.value;
-    stateSelect.innerHTML = "<option value=''>Select State/Province</option>";
+  // function populateStates() {
+  //   var countrySelect = document.getElementById("country");
+  //   var stateSelect = document.getElementById("state");
+  //   var country = countrySelect.value;
+  //   stateSelect.innerHTML = "<option value=''>Select State/Province</option>";
   
-    if (country) {
-      var states = stateData[country];
-      states.forEach(function(state) {
-        var option = document.createElement("option");
-        option.textContent = state;
-        option.value = state;
-        stateSelect.appendChild(option);
-      });
-    }
-  }
+  //   if (country) {
+  //     var states = stateData[country];
+  //     states.forEach(function(state) {
+  //       var option = document.createElement("option");
+  //       option.textContent = state;
+  //       option.value = state;
+  //       stateSelect.appendChild(option);
+  //     });
+  //   }
+  // }
 
 
 let myformele=document.getElementById("formid")
