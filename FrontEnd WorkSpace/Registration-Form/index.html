@@ -11,8 +11,6 @@
 
 </head>
 <body>
-
-
     <div class="bg-container">
         <h2 class="form-heading">Registration-Form</h2>
         <form id="formid" action="">
@@ -42,8 +40,48 @@
                         <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
                     </svg>
                     </label>
-        
             </div> 
+            </div>
+            <div class="mb-3">
+                <h3>Gender</h3>
+                <div>
+                <input  id="male" name="Gender" type="radio" value="Male"/>
+                <label  for="male">Male</label> 
+                <input  id="female" name="Gender" type="radio" value="Female"/>
+                <label  for="female">Female</label>
+                </div>
+            </div>
+            <div class="edu-container mb-3">
+                <h3 class="edu-heading">Education</h3>
+                <div class="mb-2 p-1 d-flex">
+                    <input type="checkbox" id="diplomaId" value="Diploma"/>
+                    <label class="label-items" for="diplomaId">Diploma</label>
+                    <input type="checkbox" id="BtechId" value="B.Tech"/>
+                    <label class="label-items" for="BtechId" >B.Tech</label>
+                    <input type="checkbox" id="MTechId"  value="M.Tech"/>
+                    <label class="label-items"for="MTechId" >M.Tech</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <h3>Hobbies</h3>
+                <ul type="none" class="hobbies-list">
+                    <li>
+                        <input type="checkbox" id="cricketId" value="Cricket" />
+                        <label class="label-items" for="cricketId" >Cricket</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="badmintonId" value="Badminton" />
+                        <label class="label-items" for="badmintonId">Badminton</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="readingBooksId" value="Reading Books"/>
+                        <label class="label-items" for="readingBooksId" >Reading Books</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="codingId"/>
+                        <label class="label-items" for="codingId" >Coding</label>
+                    </li>                    
+                </ul>
             </div>
             <div class="country-container">
                 <div class="mb-3">
@@ -53,7 +91,6 @@
                     <option value="india">India</option>
                     <option value="usa">United States</option>
                     <option value="canada">Canada</option>
-
                 </select>
                 </div>
                 <div class="mb-3">
@@ -75,16 +112,11 @@
                 <label for="dateid">Date & Time :</label><br>
                 <input type="datetime-local" id="dateTimeid">
             </div><br>
-
-        
-        
             <div class="buttondiv">
             <button class="btn btn-primary btn-lg" type="submit" id="sumbitBtnid"> Submit</button>
             <button type="submit" class="btn btn-danger" id="clearBtnid">Clear Data</button>
             </div>
-    
         </form>
-
     </div><br>
 <h2 class="h2tables">Form-History</h2><br>
     <div >
@@ -96,6 +128,9 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
+                    <th>Gender</th>
+                    <th>Education</th>
+                    <th>Hobbies</th>
                     <th>Country</th>
                     <th>State/Province</th>
                     <th>Distric/Region</th>
