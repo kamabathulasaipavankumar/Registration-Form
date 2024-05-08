@@ -1,0 +1,59 @@
+.bg-container{
+    background-color:#c5d7f2;
+    max-width:100vh;
+    margin: auto;
+    padding: 20px;
+    border-radius:25px;
+    box-shadow: 0 2px 5px black;
+    color: white;
+    
+}
+
+
+.form-heading{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+}
+label{
+    font-size: 15px;
+}
+
+.Errormsg{
+    color: rgb(225, 35, 35);
+    font-size: 15px;
+    margin-bottom:10px;
+}
+
+ .gender label, input[type=radio]{
+    cursor: pointer;
+    
+}
+svg{
+    color: rgb(0, 0, 0);
+}
+.buttondiv{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.h2tables{
+    text-align: center;
+   
+}
+
+
+
+.label-items{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.hobbies-list{
+    margin: 0px;
+    padding: 10px;
+    padding-top: 0px;
+}
+
