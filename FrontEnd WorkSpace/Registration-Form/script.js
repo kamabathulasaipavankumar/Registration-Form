@@ -1,30 +1,49 @@
-let nameele=document.getElementById("Nameid")
-let nameErrorMsg=document.getElementById("Errormsgid")
-let Emailele=document.getElementById("Emailid")
-let emailErrorMsg=document.getElementById("emailErrormsgid")
-let password=document.getElementById("passwordid")
-let DateTimeEle=document.getElementById("dateTimeid")
+let nameele=document.getElementById("Nameid");
+let nameErrorMsg=document.getElementById("Errormsgid");
+let Emailele=document.getElementById("Emailid");
+let emailErrorMsg=document.getElementById("emailErrormsgid");
+let password=document.getElementById("passwordid");
+var countrySelect = document.getElementById("country");
+var stateSelect = document.getElementById("state");
+let Addressele=document.getElementById("inputAddress");
+
+let DateOfBrithEle=document.getElementById("dateofBrithid");
 
 
-let submitBtnEle=document.getElementById("sumbitBtnid")
-let ClearBtnEle=document.getElementById("clearBtnid")
-let tableBody=document.getElementById("tableid")
+let submitBtnEle=document.getElementById("sumbitBtnid");
+let ClearBtnEle=document.getElementById("clearBtnid");
+let tableBody=document.getElementById("tableid");
 let array=[];
 let index;
-
+let imagePath;
 
 
 function previewImage(event) {
-    var input = event.target;
-    var reader = new FileReader();
-    reader.onload = function(){
+  var input = event.target;
+  var reader = new FileReader();
+  reader.onload = function(){
       var dataURL = reader.result;
       var imagePreview = document.getElementById('imagePreview');
       imagePreview.src = dataURL;
       imagePreview.style.display = 'block';
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
+      imagePath = dataURL;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function previewSignatureImage(event) {
+  var input = event.target;
+  var reader = new FileReader();
+  reader.onload = function(){
+      var dataURL = reader.result;
+      var signaturePreview = document.getElementById('signaturePreview');
+      signaturePreview.src = dataURL;
+      signaturePreview.style.display = 'block';
+      signaturePath = dataURL;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
 
 
   var stateData = {
@@ -55,23 +74,24 @@ function previewImage(event) {
         "British Columbia": ["Vancouver", "Victoria", "Burnaby"]
   };
   
+
   // Function to populate the states/provinces dropdown based on the selected country
-  // function populateStates() {
-  //   var countrySelect = document.getElementById("country");
-  //   var stateSelect = document.getElementById("state");
-  //   var country = countrySelect.value;
-  //   stateSelect.innerHTML = "<option value=''>Select State/Province</option>";
+  function populateStates() {
+    var countrySelect = document.getElementById("country");
+    var stateSelect = document.getElementById("state");
+    var country = countrySelect.value;
+    stateSelect.innerHTML = "<option value=''>Select State/Province</option>";
   
-  //   if (country) {
-  //     var states = stateData[country];
-  //     states.forEach(function(state) {
-  //       var option = document.createElement("option");
-  //       option.textContent = state;
-  //       option.value = state;
-  //       stateSelect.appendChild(option);
-  //     });
-  //   }
-  // }
+    if (country) {
+      var states = stateData[country];
+      states.forEach(function(state) {
+        var option = document.createElement("option");
+        option.textContent = state;
+        option.value = state;
+        stateSelect.appendChild(option);
+      });
+    }
+  }
 
 
 let myformele=document.getElementById("formid")
@@ -83,30 +103,41 @@ submitBtnEle.onclick=()=>{
     if(submitBtnEle.textContent === "Submit"){
         submitBtnEle.textContent ="Update";
         console.log(index);
+         
+        let UserDetails={
 
-        let EmployeeDetails={
+            imageUrl: imagePath,
+            SignatureUrl: signaturePath,
             nameele:nameele.value,
             Emailele:Emailele.value,
             password:password.value,
-            EmpWorkingStatusEle:EmpWorkingStatusEle.value,
-            DateTimeEle:DateTimeEle.value,
-          
+            country:country.value,
+            state:state.value,
+            district:district.value,
+            Addressele:Addressele.value,
+            DateOfBrithEle:DateOfBrithEle.value,
+           
         }
-        array[index] = EmployeeDetails;
+        array[index] = UserDetails;
                 localStorage.setItem("user",JSON.stringify(array));
     }else{
-        let EmployeeDetails={
+        let UserDetails={
+            imageUrl: imagePath, 
+            SignatureUrl: signaturePath,
             nameele:nameele.value,
             Emailele:Emailele.value,
             password:password.value,
-            
-            DateTimeEle:DateTimeEle.value,
+            country:country.value,
+            state:state.value,
+            district:district.value,
+            Addressele:Addressele.value,
+            DateOfBrithEle:DateOfBrithEle.value,
          
 
     }
 
-    array.push(EmployeeDetails)
-    console.log(EmployeeDetails);
+    array.push(UserDetails)
+    console.log(UserDetails);
 
     localStorage.setItem("user",JSON.stringify(array))
 }
@@ -115,11 +146,16 @@ createTable()
 }
 
 function clearForm(){
+  imagePath=""
+  signaturePath=""
     nameele.value=""
     Emailele.value=""
     password.value=""
-
-    DateTimeEle.value=""
+    country.value=""
+    state.value=""
+    district.value=""
+    Addressele.value=""
+    DateOfBrithEle.value=""
    
 }
 
@@ -175,8 +211,7 @@ function toggle(){
 
 
 function populateStates() {
-    var countrySelect = document.getElementById("country");
-    var stateSelect = document.getElementById("state");
+    
     var country = countrySelect.value;
     stateSelect.innerHTML = "<option value=''>Select State/Province</option>";
   
@@ -223,27 +258,57 @@ function populateStates() {
             let SNoEle=document.createElement("td")
             SNoEle.textContent= i+1;
             rowele.appendChild(SNoEle)
+           
+           
+            let photography=document.createElement("td");
+            let  photoImg = document.createElement("img");
+            photoImg.src = data.imageUrl;
+            photoImg.setAttribute("style","width:150px")
+            photography.appendChild(photoImg)
+            rowele.appendChild(photography)
+            // imageUrl
+
+            let Signature=document.createElement("td");
+            let  SignatureImg = document.createElement("img");
+            SignatureImg.src = data.SignatureUrl;
+            SignatureImg.setAttribute("style","width:150px")
+            Signature.appendChild(SignatureImg)
+            rowele.appendChild(Signature)
+
+            let NameEle=document.createElement("td")
+            NameEle.textContent= data.nameele
+            rowele.appendChild(NameEle)
+
+            let EmailEle=document.createElement("td")
+            EmailEle.textContent= data.Emailele
+            rowele.appendChild(EmailEle)
+
+            let PassEle=document.createElement("td")
+            PassEle.textContent= data.password
+            rowele.appendChild(PassEle)
+
+            let CountryEle=document.createElement("td")
+            CountryEle.textContent= data.country
+            rowele.appendChild(CountryEle)
+
+            let StateEle=document.createElement("td")
+            StateEle.textContent= data.state
+            rowele.appendChild(StateEle)
+
+            
+            let districtEle=document.createElement("td")
+            districtEle.textContent= data.district
+            rowele.appendChild(districtEle)
+
+            let AddressEle=document.createElement("td")
+            AddressEle.textContent= data.Addressele
+            rowele.appendChild(AddressEle)
+
             
 
-            let Empnameele=document.createElement("td")
-            Empnameele.textContent= data.nameele
-            rowele.appendChild(Empnameele)
-
-            let EmpEmailEle=document.createElement("td")
-            EmpEmailEle.textContent= data.Emailele
-            rowele.appendChild(EmpEmailEle)
-
-            let EmpPass=document.createElement("td")
-            EmpPass.textContent= data.password
-            rowele.appendChild(EmpPass)
-
-            let EmpWorkStatus=document.createElement("td")
-            EmpWorkStatus.textContent= data.EmpWorkingStatusEle
-            rowele.appendChild(EmpWorkStatus)
-
-            let Date_Time=document.createElement("td")
-            Date_Time.textContent= data.DateTimeEle
-            rowele.appendChild(Date_Time)
+            let DateofBrith=document.createElement("td")
+            DateofBrith.textContent= data.DateOfBrithEle
+            rowele.appendChild(DateofBrith)
 
            
 
@@ -268,11 +333,17 @@ function populateStates() {
         EditBtn.onclick = ()=>{
             submitBtnEle.textContent ="Submit";
         index = i;
+        imagePreview=array[i].imagePreview;
+        signaturePreview=array[i].signaturePreview;
         nameele.value=array[i].nameele;
         Emailele.value=array[i].Emailele;
         password.value=array[i].password;
-        EmpWorkingStatusEle.value=array[i].EmpWorkingStatusEle;
-        DateTimeEle.value=array[i].DateTimeEle;
+        country.value=array[i].country
+        state.value=array[i].state;
+        district.value=array[i].district;
+        Addressele.value=array[i].Addressele
+
+        DateOfBrithEle.value=array[i].DateOfBrithEle;
         
     
         }

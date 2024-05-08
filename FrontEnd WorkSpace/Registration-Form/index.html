@@ -7,28 +7,26 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
 <link rel="stylesheet" href="styles.css">
-<title>Employee Active Form</title>
+<title>Registration-Form</title>
 
 </head>
 <body>
     <div class="bg-container">
         <h2 class="form-heading">Registration-Form</h2>
-        <form id="formid" action="">
-            <div class="Photography mb-3 d-flex flex-column" >
-                <label for="photography">Photography :</label>
-                <input type="file"  class="form-control" id="photography" name="photography" accept="image/*" onchange="previewImage(event)">
-                <img id="imagePreview" src="#" alt="Image Preview" style="display:none; max-width: 150px; margin-top: 10px;">
-            </div>
-            <div class="mb-3">
+        <form id="formid">
+           
+            <div class="row">
+            <div class="col" >
                 <label for="Nameid">Name :</label>
                 <input type="text" class="form-control" id="Nameid" placeholder="Enter your Name" maxlength="15">
                 <p id="Errormsgid" class="Errormsg"></p>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <label for="Emailid">Email :</label>
                 <input type="text" class="form-control" id="Emailid" placeholder="Enter your Email">
                 <p id="emailErrormsgid" class="Errormsg"></p>
             </div>
+        </div>
             <div class="mb-3">
                 <label for="passwordid">Password :</label>
             <div class="passwordDiv  d-flex justify-content-end align-items-center">
@@ -42,49 +40,10 @@
                     </label>
             </div> 
             </div>
-            <div class="mb-3">
-                <h3>Gender</h3>
-                <div>
-                <input  id="male" name="Gender" type="radio" value="Male"/>
-                <label  for="male">Male</label> 
-                <input  id="female" name="Gender" type="radio" value="Female"/>
-                <label  for="female">Female</label>
-                </div>
-            </div>
-            <div class="edu-container mb-3">
-                <h3 class="edu-heading">Education</h3>
-                <div class="mb-2 p-1 d-flex">
-                    <input type="checkbox" id="diplomaId" value="Diploma"/>
-                    <label class="label-items" for="diplomaId">Diploma</label>
-                    <input type="checkbox" id="BtechId" value="B.Tech"/>
-                    <label class="label-items" for="BtechId" >B.Tech</label>
-                    <input type="checkbox" id="MTechId"  value="M.Tech"/>
-                    <label class="label-items"for="MTechId" >M.Tech</label>
-                </div>
-            </div>
-            <div class="mb-3">
-                <h3>Hobbies</h3>
-                <ul type="none" class="hobbies-list">
-                    <li>
-                        <input type="checkbox" id="cricketId" value="Cricket" />
-                        <label class="label-items" for="cricketId" >Cricket</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="badmintonId" value="Badminton" />
-                        <label class="label-items" for="badmintonId">Badminton</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="readingBooksId" value="Reading Books"/>
-                        <label class="label-items" for="readingBooksId" >Reading Books</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="codingId"/>
-                        <label class="label-items" for="codingId" >Coding</label>
-                    </li>                    
-                </ul>
-            </div>
-            <div class="country-container">
-                <div class="mb-3">
+            
+            <div class="row mb-3">
+                <div class="col">
+
                 <label for="country">Country:</label>
                 <select id="country"  class="form-control" onchange="populateStates()">
                     <option value="">Select Country</option>
@@ -93,14 +52,15 @@
                     <option value="canada">Canada</option>
                 </select>
                 </div>
-                <div class="mb-3">
+                <div class="col">
                 <label for="state">State/Province:</label>
                 <select id="state"  class="form-control"  onchange="populateDistricts()">
                     <option value="">Select State/Province</option>
                     <!-- States/Provinces will be populated dynamically based on the selected country -->
                 </select>
                 </div>
-                <div class="mb-3">
+           
+                <div class="col">
                 <label for="district">District/Region:</label>
                 <select id="district" class="form-control" >
                     <option value="">Select District/Region</option>
@@ -108,13 +68,89 @@
                 </select>
                 </div>
             </div>
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">Address :</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  </div>
+            
+            
+            <div class="mb-3">
+                <h6>Gender :</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="maleid" >
+                <label class="form-check-label" for="maleid">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="Gender" id="Femaleid" >
+                <label class="form-check-label" for="Femaleid">Female</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <h6>Qualifisation:</h6>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Qualifisation1" value="option1">
+                <label class="form-check-label" for="Qualifisation1">Graduact</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Qualifisation2" value="option2">
+                <label class="form-check-label" for="Qualifisation2">Post-Graduact</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Qualifisation3" value="option3">
+                <label class="form-check-label" for="Qualifisation3">P.hd</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Qualifisation4" value="option4">
+                <label class="form-check-label" for="Qualifisation4">othes</label>
+              </div>
+            </div>
+
+              <div class="mb-3">
+                <h6> Hobbies :</h6>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Hobbies1" value="option1">
+                <label class="form-check-label" for="Hobbies1">Coding</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Hobbies2" value="option2">
+                <label class="form-check-label" for="Hobbies2">Sports</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Hobbies3" value="option3">
+                <label class="form-check-label" for="Hobbies3">Travel</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Hobbies4" value="option4">
+                <label class="form-check-label" for="Hobbies4">Movie</label>
+              </div>
+            </div>
+
+
+        
+
             <div class="date">
-                <label for="dateid">Date & Time :</label><br>
-                <input type="datetime-local" id="dateTimeid">
-            </div><br>
+                <label for="dateid">Date of Birth:</label><br>
+                <input type="date" id="dateofBrithid">
+            </div>
+
+            <div class="row">
+                <div class="col Photography mb-3 d-flex flex-column">
+                    <label for="photography">Your Photography <span style="color: red; font-size: 30px;">*</span>:</label>
+                    <input type="file" class="form-control" id="photography" name="photography" accept="image/*" onchange="previewImage(event)">
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display:none; max-width: 150px; margin-top: 10px;">
+                </div>
+                <div class="col mb-3 d-flex flex-column">
+                    <label for="Signature">Your signature <span style="color: red; font-size: 30px;">*</span>:</label>
+                    <input type="file" class="form-control" id="Signature" name="Signature" accept="image/*" onchange="previewSignatureImage(event)">
+                    <img id="signaturePreview" src="#" alt="Signature Preview" style="display:none; max-width: 250px; margin-top: 10px;">
+                </div>
+            </div>
+            <br>
+
             <div class="buttondiv">
             <button class="btn btn-primary btn-lg" type="submit" id="sumbitBtnid"> Submit</button>
-            <button type="submit" class="btn btn-danger" id="clearBtnid">Clear Data</button>
+            <button type="submit" class="btn btn-danger btn-lg" id="clearBtnid">Clear Data</button>
             </div>
         </form>
     </div><br>
@@ -125,6 +161,7 @@
                 <tr class="table-dark">
                     <th>S.No</th>
                     <th>Photography</th>
+                    <th>Signature</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
@@ -134,7 +171,10 @@
                     <th>Country</th>
                     <th>State/Province</th>
                     <th>Distric/Region</th>
-                    <th>Date & Time</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Hobbies</th>
+                    <th>Date of Brith</th>
                     <th>Actions</th>
 
                 </tr>
