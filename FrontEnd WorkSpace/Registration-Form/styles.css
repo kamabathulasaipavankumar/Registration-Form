@@ -1,6 +1,6 @@
 .bg-container{
-    background-color:#c5d7f2;
-    max-width:100vh;
+    background-color:grey;
+    max-width:600px;
     margin: auto;
     padding: 20px;
     border-radius:25px;
@@ -15,11 +15,6 @@
     padding-top:20px;
     padding-bottom:20px;
     text-align: center;
-    color: white;
-    font-size: 35px;
-}
-label{
-    font-size: 15px;
 }
 
 .Errormsg{
@@ -37,9 +32,18 @@ svg{
 }
 .buttondiv{
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content:space-between;
 }
 .h2tables{
     text-align: center;
+   
+}
+.label-items{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.hobbies-list{
+    margin: 0px;
+    padding: 10px;
+    padding-top: 0px;
 }
