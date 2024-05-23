@@ -1,0 +1,54 @@
+.bg-container{
+    background-color:#984fd3;
+    max-width:100vh;
+    margin: auto;
+    padding: 20px;
+    border-radius:24px;
+    box-shadow: 0 2px 5px black;
+    color: white;
+    
+}
+
+
+.form-heading{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top:20px;
+    padding-bottom:20px;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+}
+label{
+    font-size: 15px;
+}
+
+.Errormsg{
+    color: rgb(225, 35, 35);
+    font-size: 15px;
+    margin-bottom:10px;
+}
+
+ .gender label, input[type=radio]{
+    cursor: pointer;
+    
+}
+svg{
+    color: rgb(0, 0, 0);
+}
+.buttondiv{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.h2tables{
+    text-align: center;
+}
+.table-dark {
+    text-align: center;
+}
+.table-container{
+    width: 100px; 
+}
+.table-heading{
+    padding: 2px;
+}

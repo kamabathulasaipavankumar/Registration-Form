@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>Registration-Form</title>
+
+</head>
+
+<body>
+  <div class="bg-container">
+    <h2 class="form-heading">Registration-Form</h2>
+    <form id="formid">
+      <div class="row">
+        <div class="col">
+          <label for="Nameid">Name :</label>
+          <input type="text" class="form-control" id="Nameid" placeholder="Enter your Name" maxlength="15">
+          <p id="Errormsgid" class="Errormsg"></p>
+        </div>
+        <div class="col">
+          <label for="Emailid">Email :</label>
+          <input type="text" class="form-control" id="Emailid" placeholder="Enter your Email">
+          <p id="emailErrormsgid" class="Errormsg"></p>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="passwordid">Password :</label>
+        <div class="passwordDiv  d-flex justify-content-end align-items-center">
+          <input type="password" autocomplete="false" class="form-control w-100" id="passwordid"
+            placeholder="Enter Your Password" maxlength="10">
+          <label class="me-3" id="passwordIcon" style="position: absolute;cursor: pointer;" onclick="toggle()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash"
+              viewBox="0 0 16 16">
+              <path
+                d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" />
+              <path
+                d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" />
+              <path
+                d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" />
+            </svg>
+          </label>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+
+          <label for="country">Country:</label>
+          <select id="country" class="form-control" onchange="populateStates()">
+            <option value="">Select Country</option>
+            <option value="india">India</option>
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="state">State/Province:</label>
+          <select id="state" class="form-control" onchange="populateDistricts()">
+            <option value="">Select State/Province</option>
+            <!-- States/Provinces will be populated dynamically based on the selected country -->
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="district">District/Region:</label>
+          <select id="district" class="form-control">
+            <option value="">Select District/Region</option>
+            <!-- Districts/Regions will be populated dynamically based on the selected state/province -->
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="inputAddress" class="form-label">Address :</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="row">
+      <div class="date col">
+        <label for="dateid">Date of Birth:</label><br>
+        <input type="date" class="form-control" id="dateofBrithid">
+      </div>
+
+      <div class="mb-3 col">
+        <h6>Gender :</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="Gender" value="Male" id="Maleid">
+          <label class="form-check-label" for="maleid">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="Gender" value="Female" id="Femaleid">
+          <label class="form-check-label" for="Femaleid">Female</label>
+        </div>
+      </div>
+    </div>
+
+      <div class="mb-3">
+        <h6>Qualification:</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="Qualification" id="GraduateId" type="checkbox" value="Graduate">
+          <label class="form-check-label" for="GraduateId">Graduate</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="Qualification" id="Post-GraduateId" type="checkbox"
+            value="Post-Graduate">
+          <label class="form-check-label" for="Post-GraduateId">Post-Graduate</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" name="Qualification" id="P.hdId" type="checkbox" value="P.hd">
+          <label class="form-check-label" for="P.hdId">P.hd</label>
+        </div>
+        <!-- <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Qualification4" value="option4">
+                <label class="form-check-label" for="Qualification4">others</label>
+              </div> -->
+      </div>
+
+      <div class="mb-3">
+        <h6> Hobbies :</h6>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="Hobbies" id="CricketId" value="Cricket">
+          <label class="form-check-label" for="Hobbies1">Cricket</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="Hobbies" id="Reading BooksId" value="Reading Books">
+          <label class="form-check-label" for="Hobbies2">Reading Books</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="Hobbies" id="CodingId" value="Coding">
+          <label class="form-check-label" for="Hobbies3">Coding</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="Hobbies" id="Browsing NetId" value="Browsing Net">
+          <label class="form-check-label" for="Hobbies4">Browsing Net</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col Photography mb-3 d-flex flex-column">
+          <label for="photography">Your Photography <span style="color: red; font-size: 20px;">*</span>:</label>
+          <input type="file" value="" class="form-control" id="photography" name="photography" accept="image/*"
+            onchange="previewImage(event)">
+          <img id="imagePreview" src="#" alt="Image Preview" style="display:none; max-width: 150px; margin-top: 10px;">
+        </div>
+        <div class="col mb-3 d-flex flex-column">
+          <label for="Signature">Your signature <span style="color: red; font-size: 20px;">*</span>:</label>
+          <input type="file" value="" class="form-control" id="Signature" name="Signature" accept="image/*"
+            onchange="previewSignatureImage(event)">
+          <img id="signaturePreview" src="#" alt="Signature Preview"
+            style="display:none; max-width: 250px; margin-top: 10px;">
+        </div>
+      </div>
+      <br>
+      <div class="buttondiv">
+        <button class="btn btn-primary btn-lg" type="button" id="sumbitBtnid"> Submit</button>
+        <button type="reset" class="btn btn-danger btn-lg" id="clearBtnid">Clear Data</button>
+      </div>
+    </form>
+  </div><br>
+  <h2 class="h2tables">Form-History</h2><br>
+  <div class="d-flex justify-content-center">
+    <table class="table-container table table-striped">
+      <thead>
+        <tr class="table-dark table-heading">
+          <th>S.No</th>
+          <th>Photography</th>
+          <th>Signature</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Gender</th>
+          <th>Education</th>
+          <th>Hobbies</th>
+          <th>Country</th>
+          <th>State/Province</th>
+          <th>Distric/Region</th>
+          <th>Address</th>
+          <th>D.O.B</th>
+          <th>Actions</th>
+
+        </tr>
+      </thead>
+      <tbody id="tableid" class="table-primary">
+
+      </tbody>
+   
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>
