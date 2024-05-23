@@ -1,10 +1,11 @@
 .bg-container{
-    background-color:#c5d7f2;
-    max-width:100vh;
+    /* background-color:#c5d7f2; */
+    max-width:90vh;
     margin: auto;
+    margin-top: 50px;
     padding: 20px;
-    border-radius:25px;
-    box-shadow: 0 2px 5px black;
+    border-radius:5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     color: white;
     
 }
@@ -15,11 +16,13 @@
     padding-top:20px;
     padding-bottom:20px;
     text-align: center;
-    color: white;
+    color:black;
     font-size: 35px;
+   font-weight: bold;
 }
 label{
     font-size: 15px;
+    color :black;
 }
 
 .Errormsg{

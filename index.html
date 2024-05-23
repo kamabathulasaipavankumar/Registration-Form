@@ -7,7 +7,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
 <link rel="stylesheet" href="styles.css">
-<title>Employee Active Form</title>
+<title>Registraction Form</title>
 
 </head>
 <body>
@@ -73,43 +73,63 @@
                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                   </div>
             
-            
-            <div class="mb-3">
-                <h6>Gender :</h6>
+            <div class="row">
+                <div class="date mb-3 col">
+                    <label for="dateid">Date of Birth:</label><br>
+                    <input type="date" class="form-control" id="dateofBrithid">
+                </div>
+            <div class="mb-3 col">
+                <h6 style="color: black;">Gender :</h6>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Gender" id="maleid" >
+                <input class="form-check-input" type="radio" name="Gender" value="Male" id="maleid" >
                 <label class="form-check-label" for="maleid">Male</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="Gender" id="Femaleid" >
+                <input class="form-check-input" type="radio" name="Gender"  value="Female" id="Femaleid" >
                 <label class="form-check-label" for="Femaleid">Female</label>
+              </div>
+            </div>
+            
+        </div>
+
+            <div class="mb-3">
+            <h6 style="color: black;"> Education :</h6>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Educationcheckbox1" name="Education" value="B.Tech">
+                <label class="form-check-label" for="Educationcheckbox1">B.Tech</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Educationcheckbox2" name="Education" value="MCA">
+                <label class="form-check-label" for="Educationcheckbox2">MCA</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Educationcheckbox3"  name="Education" value="M.Tech">
+                <label class="form-check-label" for="Educationcheckbox3">M.Tech</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="Educationcheckbox4"  name="Education" value="Degree">
+                <label class="form-check-label" for="Educationcheckbox4">Degree</label>
               </div>
             </div>
 
               <div class="mb-3">
-                <h6> Hobbies :</h6>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Music</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Sports</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Travel</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                <label class="form-check-label" for="inlineCheckbox4">Movie</label>
-              </div>
+                <h6 style="color: black;"> Hobbies :</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="hobbies" value="Coding">
+                <label class="form-check-label" for="inlineCheckbox1">Coding</label>
             </div>
-        
-
-            <div class="date">
-                <label for="dateid">Date of Birth:</label><br>
-                <input type="date" id="dateofBrithid">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="hobbies" value="Sports">
+                <label class="form-check-label" for="inlineCheckbox2">Sports</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="hobbies" value="Travel">
+                <label class="form-check-label" for="inlineCheckbox3">Travel</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="hobbies" value="Movie">
+                <label class="form-check-label" for="inlineCheckbox4">Movie</label>
+            </div>
             </div>
 
             <div class="row">
@@ -129,6 +149,9 @@
             <button class="btn btn-primary btn-lg" type="submit" id="sumbitBtnid"> Submit</button>
             <button type="submit" class="btn btn-danger btn-lg" id="clearBtnid">Clear Data</button>
             </div>
+            <div class="movetologin text-center m-4">
+                <a href="login.html">Already have an account? Sign in</a>
+            </div>
         </form>
     </div><br>
 <h2 class="h2tables">Form-History</h2><br>
@@ -142,13 +165,13 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Password</th>
-                    <th>Gender</th>
-                    <th>Education</th>
-                    <th>Hobbies</th>
                     <th>Country</th>
                     <th>State/Province</th>
                     <th>Distric/Region</th>
                     <th>Address</th>
+                    <th>Gender</th>
+                    <th>Education</th>
+                    <th>Hobbies</th>
                     <th>Date of Brith</th>
                     <th>Actions</th>
                 </tr>
